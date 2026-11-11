@@ -32,7 +32,7 @@
 ```powershell
 py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+python -m pip install -r ../requirements.txt   # 套件清單在 Repo 根目錄，原因見第 7 節
 Copy-Item .env.example .env      # 再打開 .env 填入自己的 OPENAI_API_KEY
 python -m streamlit run app.py
 ```
@@ -60,7 +60,10 @@ python -m streamlit run app.py
 | Main file path | `Midterm Mini-Project/app.py` |
 | Cloud Python 版本 | 待填（Advanced settings 實際選擇） |
 | 老師觀看權限 | 待填（公開或已加入老師） |
+| 套件清單 | Repo 根目錄 `requirements.txt`（streamlit 1.63.0／openai 2.49.0／python-dotenv 1.2.3） |
 | 雲端驗收日期／結果 | 待填 |
+
+**為什麼 requirements.txt 放在 Repo 根目錄：** 2026-11-11 第一次部署時，requirements.txt 放在 `Midterm Mini-Project/` 內，Cloud 安裝失敗，log 顯示 `Invalid requirement: 'Mini-Project/requirements.txt'`，原因是平台沒有替含空格的路徑加引號。依說明書 3-1「入口同層或 Repo 根目錄」的規定，改用根目錄已有、內容相同的共用清單（比對後未覆蓋）。
 
 詳細測試紀錄見 [第08週_課堂簡化版_專題設計與驗收紀錄.md](第08週_課堂簡化版_專題設計與驗收紀錄.md)。
 
